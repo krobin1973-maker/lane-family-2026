@@ -1,0 +1,118 @@
+{
+  "pages/home/fall-foliage": {
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2280235458",
+    "searchQuery": "vibrant fall autumn leaves orange red golden festive celebration",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2296867943",
+      "https://img1.wsimg.com/isteam/getty/2244846790"
+    ],
+    "userModified": false,
+    "createdAt": "2026-10-06T14:46:55.283Z",
+    "lastUpdated": "2026-10-06T14:46:55.283Z",
+    "gettyId": "2280235458",
+    "alternativeGettyIds": [
+      "2296867943",
+      "2244846790"
+    ]
+  },
+  "pages/home/hero": {
+    "requestedSize": {
+      "width": 1600,
+      "height": 900,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1472649412",
+    "searchQuery": "St. Louis Gateway Arch skyline autumn fall festive warm",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2272650721",
+      "https://img1.wsimg.com/isteam/getty/992352646",
+      "https://img1.wsimg.com/isteam/getty/2275747765",
+      "https://img1.wsimg.com/isteam/getty/186421041"
+    ],
+    "userModified": false,
+    "createdAt": "2026-10-06T14:46:57.195Z",
+    "lastUpdated": "2026-10-06T14:46:57.195Z",
+    "gettyId": "1472649412",
+    "alternativeGettyIds": [
+      "2272650721",
+      "992352646",
+      "2275747765",
+      "186421041"
+    ]
+  },
+  "logo/horizontal": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/logo-horizontal-1878abb4.png",
+    "searchQuery": "lane family takes st louis thanksgiving weekend",
+    "alternatives": [],
+    "userModified": true,
+    "createdAt": "2026-10-06T15:14:05.259Z",
+    "lastUpdated": "2026-10-06T15:14:05.259Z",
+    "uploadSources": {
+      "/airo-assets/uploads/logo-horizontal-1878abb4.png": "4lflf2pn8z_1791299599432_file_ZK74EchF--.png"
+    },
+    "uploadContentHash": "78eabba90f64c6bd08e582967c8909ebd9294d03fe4512681a0d0c327a103bfd",
+    "naturalOrientation": "horizontal",
+    "surfaceMode": "dark",
+    "darkSurfaceUrl": "/airo-assets/uploads/logo-horizontal-1878abb4.png",
+    "caption": "lane family takes st louis thanksgiving weekend"
+  },
+  "logo/primary": {
+    "darkSurfaceUrl": "/airo-assets/uploads/logo-primary-e36f07cb.png",
+    "surfaceMode": "dark",
+    "currentUrl": "/airo-assets/uploads/logo-primary-e36f07cb.png",
+    "userModified": true,
+    "mediaType": "logo",
+    "searchQuery": "",
+    "alternatives": [],
+    "uploadSources": {
+      "/airo-assets/uploads/logo-primary-e36f07cb.png": "4lflf2pn8z_1791299599432_file_ZK74EchF--.png"
+    },
+    "uploadContentHash": "78eabba90f64c6bd08e582967c8909ebd9294d03fe4512681a0d0c327a103bfd",
+    "createdAt": "2026-10-06T15:14:05.259Z",
+    "lastUpdated": "2026-10-06T15:14:05.259Z",
+    "naturalOrientation": "square"
+  },
+  "logo/vertical": {
+    "darkSurfaceUrl": "/airo-assets/uploads/logo-vertical-edf03bc9.png",
+    "surfaceMode": "dark",
+    "currentUrl": "/airo-assets/uploads/logo-vertical-edf03bc9.png",
+    "userModified": true,
+    "mediaType": "logo",
+    "searchQuery": "",
+    "alternatives": [],
+    "uploadSources": {
+      "/airo-assets/uploads/logo-vertical-edf03bc9.png": "4lflf2pn8z_1791299599432_file_ZK74EchF--.png"
+    },
+    "uploadContentHash": "78eabba90f64c6bd08e582967c8909ebd9294d03fe4512681a0d0c327a103bfd",
+    "createdAt": "2026-10-06T15:14:05.259Z",
+    "lastUpdated": "2026-10-06T15:14:05.259Z",
+    "naturalOrientation": "vertical"
+  },
+  "logo/favicon": {
+    "darkSurfaceUrl": "/airo-assets/uploads/logo-favicon-f4d64c90.png",
+    "surfaceMode": "dark",
+    "currentUrl": "/airo-assets/uploads/logo-favicon-f4d64c90.png",
+    "userModified": true,
+    "mediaType": "logo",
+    "searchQuery": "",
+    "alternatives": [],
+    "uploadSources": {
+      "/airo-assets/uploads/logo-favicon-f4d64c90.png": "4lflf2pn8z_1791299599432_file_ZK74EchF--.png"
+    },
+    "uploadContentHash": "78eabba90f64c6bd08e582967c8909ebd9294d03fe4512681a0d0c327a103bfd",
+    "createdAt": "2026-10-06T15:14:05.259Z",
+    "lastUpdated": "2026-10-06T15:14:05.259Z"
+  }
+}

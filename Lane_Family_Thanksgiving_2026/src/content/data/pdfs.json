@@ -1,0 +1,16 @@
+[
+  {
+    "id": "pdf-signup",
+    "title": "Family Sign-Up Sheet",
+    "fileUrl": "/data/Lane_Family_Thanksgiving_Sign up.pdf",
+    "display": "paginated",
+    "caption": "Fill this out and let us know you're coming!"
+  },
+  {
+    "id": "pdf-itinerary",
+    "title": "Weekend Itinerary 2026",
+    "fileUrl": "/data/Lane_Family_Thanksgiving_Weekend_2026_SMALL.pdf",
+    "display": "paginated",
+    "caption": "The full plan for our St. Louis takeover — save it!"
+  }
+]

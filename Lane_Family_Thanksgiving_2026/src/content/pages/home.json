@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "headline": "Lanes Take Over St. Louis",
+    "subheading": "Thanksgiving 2026",
+    "tagline": "Pack your bags. Bring your appetite. The Lanes are coming."
+  },
+  "details": {
+    "sectionLabel": "The Deets",
+    "cards": [
+      {
+        "id": "card-1",
+        "emoji": "📅",
+        "title": "When",
+        "body": "Thanksgiving Week 2026",
+        "sub": "November 23–29, 2026"
+      },
+      {
+        "id": "card-2",
+        "emoji": "📍",
+        "title": "Where",
+        "body": "St. Louis, Missouri",
+        "sub": "The Gateway to the West (and to Grandma's cooking)"
+      },
+      {
+        "id": "card-3",
+        "emoji": "🦃",
+        "title": "What",
+        "body": "The Full Lane Family Takeover",
+        "sub": "Food, fun, family, and maybe a little friendly competition"
+      },
+      {
+        "id": "card-4",
+        "emoji": "🎉",
+        "title": "Vibe",
+        "body": "All Love, All Weekend",
+        "sub": "Come ready to eat, laugh, and make memories"
+      }
+    ]
+  },
+  "rsvp": {
+    "sectionLabel": "Roll Call",
+    "headline": "Are You In?",
+    "body": "We're counting heads so we can plan the feast of the century. Let us know you're coming — the more Lanes, the merrier!",
+    "cta": "Count Me In!"
+  }
+}
