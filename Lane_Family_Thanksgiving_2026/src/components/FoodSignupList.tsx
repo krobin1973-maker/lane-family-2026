@@ -46,7 +46,7 @@ const MENU_COMMITMENTS: FoodItem[] = [
   {
     "id": "menu-5",
     "dish": "Duck",
-    "name": "Ken",
+    "name": "Kim",
     "category": "Main Dish",
     "serves": "",
     "createdAt": ""
