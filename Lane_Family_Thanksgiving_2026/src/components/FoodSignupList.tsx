@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface FoodItem {
-  id: number;
+  id: string;
   name: string;
   dish: string;
   category: string;
@@ -39,16 +39,18 @@ export default function FoodSignupList() {
   const [category, setCategory] = useState('Side Dish');
   const [serves, setServes] = useState('');
   const [error, setError] = useState('');
+  const [listError, setListError] = useState(false);
+  const [confirmation, setConfirmation] = useState('');
 
   const fetchItems = useCallback(async () => {
     try {
-      const res = await fetch('/api/food');
-      if (res.ok) {
-        const data = await res.json() as FoodItem[];
-        setItems(data);
-      }
+      const res = await fetch('/.netlify/functions/food-list');
+      if (!res.ok) throw new Error('Unable to load the sign-up list');
+      const data = await res.json() as FoodItem[];
+      setItems(data);
+      setListError(false);
     } catch {
-      // silently ignore
+      setListError(true);
     } finally {
       setLoading(false);
     }
@@ -68,32 +70,30 @@ export default function FoodSignupList() {
     }
     setSubmitting(true);
     setError('');
+    setConfirmation('');
     try {
-      const res = await fetch('/api/food', {
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), dish: dish.trim(), category, serves: serves.trim() }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'lane-food',
+          name: name.trim(),
+          dish: dish.trim(),
+          category,
+          serves: serves.trim(),
+        }).toString(),
       });
-      if (!res.ok) throw new Error('Could not add dish');
-      const newItem = await res.json() as FoodItem;
-      setItems((prev) => [...prev, newItem]);
+      if (!res.ok) throw new Error('Could not save dish');
+      setConfirmation('Your dish was saved! Thank you for contributing.');
       setName('');
       setDish('');
       setServes('');
       setCategory('Side Dish');
+      void fetchItems();
     } catch {
-      setError('Something went wrong. Please try again.');
+      setError('We could not save your dish. Please try again.');
     } finally {
       setSubmitting(false);
-    }
-  }
-
-  async function handleDelete(id: number) {
-    try {
-      await fetch(`/api/food/${id}`, { method: 'DELETE' });
-      setItems((prev) => prev.filter((i) => i.id !== id));
-    } catch {
-      // silently ignore
     }
   }
 
@@ -208,6 +208,11 @@ export default function FoodSignupList() {
                 />
               </div>
             </div>
+            {confirmation && (
+              <p role="status" className="text-sm font-semibold mb-3" style={{ color: 'hsl(var(--cream))' }}>
+                {confirmation}
+              </p>
+            )}
             {error && (
               <p className="text-sm font-semibold mb-3" style={{ color: 'hsl(var(--error-text))' }}>
                 {error}
@@ -226,10 +231,16 @@ export default function FoodSignupList() {
             </motion.button>
           </form>
 
-          {/* Live list */}
+          {/* Live list. Saving a dish works independently if the display service is unavailable. */}
+          {listError && (
+            <p role="status" className="text-center text-sm font-semibold mb-4 text-muted-foreground">
+              The shared dish list is temporarily unavailable. You can still submit your dish,
+              and the organizer can view it in Netlify Forms.
+            </p>
+          )}
           {loading ? (
             <div className="text-center py-12 text-muted-foreground">Loading the feast…</div>
-          ) : items.length === 0 ? (
+          ) : listError ? null : items.length === 0 ? (
             <div
               className="rounded-3xl p-12 text-center"
               style={{ background: 'hsl(var(--muted))' }}
@@ -289,15 +300,7 @@ export default function FoodSignupList() {
                                 </p>
                               </div>
                             </div>
-                            <button
-                              onClick={() => { void handleDelete(item.id); }}
-                              className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm opacity-40 hover:opacity-100 transition-opacity"
-                              style={{ background: 'hsl(var(--destructive))', color: 'white' }}
-                              aria-label={`Remove ${item.dish}`}
-                              title="Remove"
-                            >
-                              ✕
-                            </button>
+
                           </motion.div>
                         ))}
                       </AnimatePresence>
