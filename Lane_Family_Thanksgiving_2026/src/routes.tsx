@@ -7,6 +7,7 @@ const NotFoundPage = ProdNotFoundPage;
 
 const SignUpPage = lazy(() => import('./pages/sign-up'));
 const ItineraryPage = lazy(() => import('./pages/itinerary'));
+const OrganizerPage = lazy(() => import('./pages/organizer'));
 
 export const routes: RouteObject[] = [
   {
@@ -22,11 +23,15 @@ export const routes: RouteObject[] = [
     element: <ItineraryPage />,
   },
   {
+    path: '/organizer',
+    element: <OrganizerPage />,
+  },
+  {
     id: 'airo-not-found',
     path: '*',
     element: <NotFoundPage />,
   },
 ];
 
-export type Path = '/' | '/sign-up' | '/itinerary';
+export type Path = '/' | '/sign-up' | '/itinerary' | '/organizer';
 export type Params = Record<string, string | undefined>;
