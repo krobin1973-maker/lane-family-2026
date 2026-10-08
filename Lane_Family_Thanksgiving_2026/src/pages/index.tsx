@@ -352,6 +352,11 @@ export default function HomePage() {
                     Thanksgiving Menu
                   </h3>
                 </div>
+                <p className="text-sm mb-5" style={{ color: 'hsl(var(--cream) / 0.8)' }}>
+                  The menu PDF shows dishes already claimed. Download it to fill out your own copy,
+                  but PDF edits do not update the shared website. To tell everyone what you're bringing,
+                  use the “Add My Dish” form below.
+                </p>
                 <Suspense fallback={<PdfSkeleton />}>
                   <PdfViewer
                     fileUrl="/data/Lane_Family_Thanksgiving_Editable_Menu_Blank_Bottom_Section.pdf"
