@@ -232,7 +232,6 @@ const dbRes = await fetch('/', {
 
 
       if (!dbRes.ok) throw new Error('Could not save RSVP');
-
       // Field mapping: only notes go in messages_attributes[0].body. All other fields go in conversation.data.
       await fetch('/api/contact/rsvp', {
         method: 'POST',
