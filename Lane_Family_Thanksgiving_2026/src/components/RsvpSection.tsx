@@ -203,19 +203,24 @@ export default function RsvpSection({ children }: { children: React.ReactNode })
     setErrorMsg('');
 
     try {
-      const dbRes = await fetch('/api/rsvps', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name,
-          email,
-          guestsThursday: guests.thursday,
-          guestsFriday: guests.friday,
-          guestsSaturday: guests.saturday,
-          guestsSunday: guests.sunday,
-          notes,
-        }),
-      });
+     
+const dbRes = await fetch('/', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  },
+  body: new URLSearchParams({
+    'form-name': 'lane-rsvp',
+    name,
+    email,
+    guestsThursday: String(guests.thursday),
+    guestsFriday: String(guests.friday),
+    guestsSaturday: String(guests.saturday),
+    guestsSunday: String(guests.sunday),
+    notes,
+  }).toString(),
+});
+
 
       if (!dbRes.ok) throw new Error('Could not save RSVP');
 
