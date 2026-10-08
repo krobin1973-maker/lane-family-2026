@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Logo */}
         <div className="flex justify-center mb-6">
           <img
-            src="/airo-assets/images/logo/horizontal"
+            src="/horizontal.png"
             alt="Lane Family Thanksgiving 2026"
             className="block h-auto w-auto object-contain"
             style={{
