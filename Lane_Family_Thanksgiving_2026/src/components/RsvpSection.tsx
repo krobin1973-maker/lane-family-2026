@@ -232,25 +232,7 @@ const dbRes = await fetch('/', {
 
 
       if (!dbRes.ok) throw new Error('Could not save RSVP');
-      // Field mapping: only notes go in messages_attributes[0].body. All other fields go in conversation.data.
-      await fetch('/api/contact/rsvp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          conversation: {
-            messages_attributes: [{ body: notes || 'New RSVP submitted' }],
-            data: {
-              __gd_contact_form_title: 'Lane Family Thanksgiving RSVP',
-              'Thursday (Nov 26) guests': String(guests.thursday),
-              'Friday (Nov 27) guests': String(guests.friday),
-              'Saturday (Nov 28) guests': String(guests.saturday),
-              'Sunday (Nov 29) guests': String(guests.sunday),
-              'Notes': notes || '—',
-            },
-          },
-          user: { email, name },
-        }),
-      });
+     0
 
       setStatus('success');
       form.reset();
