@@ -51,7 +51,7 @@ export default async function handler() {
       );
 
       if (!response.ok) {
-        throw new Error("Unable to read RSVPs");
+       throw new Error(`Unable to access forms (HTTP ${formsResponse.status})`);
       }
 
       const submissions = await response.json();
