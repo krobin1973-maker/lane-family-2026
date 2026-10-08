@@ -96,14 +96,14 @@ export default function HomePage() {
         >
           {/* Background image */}
           <img
-            src="/1472649412.jpeg
-            alt="St. Louis Gateway Arch skyline in autumn"
-            className="absolute inset-0 w-full h-full object-cover opacity-30"
-            loading="eager"
-            fetchPriority="high"
-            width={1600}
-            height={900}
-          />
+  src="/1472649412.jpeg"
+  alt="St. Louis Gateway Arch skyline in autumn"
+  className="absolute inset-0 w-full h-full object-cover opacity-30"
+  loading="eager"
+  fetchPriority="high"
+  width={1600}
+  height={900}
+/>
 
           {/* Decorative elements */}
           <motion.div
