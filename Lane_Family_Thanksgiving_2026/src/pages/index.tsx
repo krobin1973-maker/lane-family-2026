@@ -140,7 +140,7 @@ export default function HomePage() {
             <motion.div variants={itemVariants} className="mb-8">
               <h1 className="sr-only">Lane Family Thanksgiving 2026 — Lanes Take Over St. Louis</h1>
               <img
-                src="/airo-assets/images/logo/horizontal"
+                src="/horizontal.png"
                 alt="The Lane Family Takes St. Louis — Thanksgiving 2026"
                 className="block h-auto w-auto object-contain mx-auto"
                 style={{
