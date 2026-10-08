@@ -170,12 +170,21 @@ export default function RsvpSection({ children }: { children: React.ReactNode })
 
   const fetchHeadcount = useCallback(async () => {
     try {
-      const res = await fetch('/api/rsvps');
-      if (res.ok) {
-        const data = await res.json() as HeadcountData;
-        setHeadcountData(data);
-      }
-    } catch {
+     
+const res = await fetch('/.netlify/functions/guest-counts');
+if (res.ok) {
+  const counts = await res.json();
+  setHeadcountData({
+    headcount: {
+      thursday: counts.thursday ?? 0,
+      friday: counts.friday ?? 0,
+      saturday: counts.saturday ?? 0,
+      sunday: counts.sunday ?? 0,
+    },
+    totalRsvps: counts.totalRsvps ?? 0,
+  });
+}
+} catch {
       // silently ignore
     } finally {
       setHeadcountLoading(false);
