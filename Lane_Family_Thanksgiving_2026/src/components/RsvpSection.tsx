@@ -48,7 +48,7 @@ function HeadcountBoard({ data, loading }: { data: HeadcountData | null; loading
             className="w-2 h-2 rounded-full animate-pulse"
             style={{ background: 'hsl(var(--golden))' }}
           />
-          {loading ? '…' : `${data?.totalRsvps ?? 0} RSVPs`}
+          {loading ? '…' : data ? `${data.totalRsvps} RSVPs` : 'Counts unavailable'}
         </div>
       </div>
 
@@ -74,7 +74,7 @@ function HeadcountBoard({ data, loading }: { data: HeadcountData | null; loading
             </div>
             <AnimatePresence mode="wait">
               <motion.div
-                key={loading ? 'loading' : String(data?.headcount[day.key] ?? 0)}
+                key={loading ? 'loading' : data ? String(data.headcount[day.key]) : 'unavailable'}
                 initial={{ scale: 0.7, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.7, opacity: 0 }}
@@ -82,7 +82,7 @@ function HeadcountBoard({ data, loading }: { data: HeadcountData | null; loading
                 className="text-4xl font-black"
                 style={{ fontFamily: 'var(--font-heading)', color: 'hsl(var(--golden))' }}
               >
-                {loading ? '–' : (data?.headcount[day.key] ?? 0)}
+                {loading ? '–' : (data ? data.headcount[day.key] : '–')}
               </motion.div>
             </AnimatePresence>
             <div
@@ -232,7 +232,6 @@ const dbRes = await fetch('/', {
 
 
       if (!dbRes.ok) throw new Error('Could not save RSVP');
-     0
 
       setStatus('success');
       form.reset();
