@@ -24,7 +24,7 @@ export default async function handler() {
     );
 
     if (!formsResponse.ok) {
-      throw new Error("Unable to access forms");
+    throw new Error(`Unable to access forms (HTTP ${formsResponse.status})`);  
     }
 
     const forms = await formsResponse.json();
