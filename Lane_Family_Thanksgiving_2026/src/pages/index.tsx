@@ -65,7 +65,7 @@ const slideUp = {
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 export default function HomePage() {
-  const siteUrl = 'https://4lflf2pn8z.preview.c39.airoapp.ai';
+  const siteUrl = 'https://lane2026stl.netlify.app';
   const pageTitle = 'Lane Family Thanksgiving 2026 — Lanes Take Over St. Louis';
   const pageDescription =
     'The Lane family is taking over St. Louis for Thanksgiving 2026! Pack your bags, bring your appetite, and RSVP now.';
@@ -81,11 +81,11 @@ export default function HomePage() {
         <meta property="og:description" content={pageDescription} />
         <meta property="og:url" content={siteUrl} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={`${siteUrl}/airo-assets/images/pages/home/hero`} />
+        <meta property="og:image" content={`${siteUrl}/1472649412.jpeg`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content={`${siteUrl}/airo-assets/images/pages/home/hero`} />
+        <meta name="twitter:image" content={`${siteUrl}/1472649412.jpeg`} />
       </Helmet>
 
       <main>
