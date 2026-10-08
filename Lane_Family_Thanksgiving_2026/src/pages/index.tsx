@@ -261,7 +261,7 @@ export default function HomePage() {
               viewport={{ once: true }}
             >
               <img
-                src="/airo-assets/images/pages/home/fall-foliage"
+                src="/fall-foliage.jpg"
                 alt="Vibrant fall foliage"
                 className="w-full h-full object-cover"
                 loading="lazy"
