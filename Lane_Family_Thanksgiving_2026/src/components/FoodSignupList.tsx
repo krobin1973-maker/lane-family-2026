@@ -202,7 +202,7 @@ export default function FoodSignupList() {
       const res = await fetch('/.netlify/functions/food-list');
       if (!res.ok) throw new Error('Unable to load the sign-up list');
       const data = await res.json() as FoodItem[];
-      setItems([...MENU_COMMITMENTS, ...data]);
+      setItems(data);
       setListError(false);
     } catch {
       setListError(true);
@@ -289,7 +289,7 @@ export default function FoodSignupList() {
               Who's Bringing What?
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-              These dishes are already claimed on the family menu. Add anything else below! New sign-ups are saved and will join the shared list as soon as the connection is restored.
+              These dishes are already claimed on the family menu. Add anything else below! The shared list updates automatically as family members sign up.
             </p>
           </div>
 
