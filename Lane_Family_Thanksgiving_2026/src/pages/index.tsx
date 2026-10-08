@@ -96,7 +96,7 @@ export default function HomePage() {
         >
           {/* Background image */}
           <img
-            src="/airo-assets/images/pages/home/hero"
+            src="/1472649412.jpeg
             alt="St. Louis Gateway Arch skyline in autumn"
             className="absolute inset-0 w-full h-full object-cover opacity-30"
             loading="eager"
