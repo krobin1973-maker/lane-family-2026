@@ -10,6 +10,161 @@ interface FoodItem {
   createdAt: string;
 }
 
+const MENU_COMMITMENTS: FoodItem[] = [
+  {
+    "id": "menu-1",
+    "dish": "Fried Turkey",
+    "name": "Ramon Robinson",
+    "category": "Main Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-2",
+    "dish": "Grilled Chicken",
+    "name": "Jimmy Lee",
+    "category": "Main Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-3",
+    "dish": "Ribs",
+    "name": "Jimmy Lee",
+    "category": "Main Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-4",
+    "dish": "Honey-Baked Ham",
+    "name": "Kamron",
+    "category": "Main Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-5",
+    "dish": "Duck",
+    "name": "Ken",
+    "category": "Main Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-6",
+    "dish": "Brisket",
+    "name": "Uncle David",
+    "category": "Main Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-7",
+    "dish": "Fish",
+    "name": "Kendrick",
+    "category": "Main Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-8",
+    "dish": "Fried Chicken",
+    "name": "Kendrick",
+    "category": "Main Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-9",
+    "dish": "Mac & Cheese",
+    "name": "Kesha",
+    "category": "Side Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-10",
+    "dish": "Greens",
+    "name": "Kim",
+    "category": "Side Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-11",
+    "dish": "Sweet Potatoes",
+    "name": "Pat",
+    "category": "Side Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-12",
+    "dish": "Dressing",
+    "name": "Natasha",
+    "category": "Side Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-13",
+    "dish": "Potato Salad",
+    "name": "Kesha",
+    "category": "Side Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-14",
+    "dish": "Gravy",
+    "name": "Carolyn",
+    "category": "Side Dish",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-15",
+    "dish": "Banana Cake",
+    "name": "Lauretta",
+    "category": "Dessert",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-16",
+    "dish": "German Chocolate Cake",
+    "name": "Pat",
+    "category": "Dessert",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-17",
+    "dish": "Biscoff Cheesecake",
+    "name": "Kesha",
+    "category": "Dessert",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-18",
+    "dish": "Banana Pudding",
+    "name": "Kesha",
+    "category": "Dessert",
+    "serves": "",
+    "createdAt": ""
+  },
+  {
+    "id": "menu-19",
+    "dish": "Cookies",
+    "name": "Kesha",
+    "category": "Dessert",
+    "serves": "",
+    "createdAt": ""
+  }
+];
+
 const CATEGORIES = ['Main Dish', 'Side Dish', 'Dessert', 'Appetizer', 'Drinks', 'Other'];
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -31,7 +186,7 @@ const CATEGORY_EMOJIS: Record<string, string> = {
 };
 
 export default function FoodSignupList() {
-  const [items, setItems] = useState<FoodItem[]>([]);
+  const [items, setItems] = useState<FoodItem[]>(MENU_COMMITMENTS);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [name, setName] = useState('');
@@ -47,7 +202,7 @@ export default function FoodSignupList() {
       const res = await fetch('/.netlify/functions/food-list');
       if (!res.ok) throw new Error('Unable to load the sign-up list');
       const data = await res.json() as FoodItem[];
-      setItems(data);
+      setItems([...MENU_COMMITMENTS, ...data]);
       setListError(false);
     } catch {
       setListError(true);
@@ -134,7 +289,7 @@ export default function FoodSignupList() {
               Who's Bringing What?
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-              Sign up for a dish so we don't end up with 12 mac &amp; cheeses (or do we?). Updates live as family adds their contributions.
+              These dishes are already claimed on the family menu. Add anything else below! New sign-ups are saved and will join the shared list as soon as the connection is restored.
             </p>
           </div>
 
@@ -234,13 +389,12 @@ export default function FoodSignupList() {
           {/* Live list. Saving a dish works independently if the display service is unavailable. */}
           {listError && (
             <p role="status" className="text-center text-sm font-semibold mb-4 text-muted-foreground">
-              The shared dish list is temporarily unavailable. You can still submit your dish,
-              and the organizer can view it in Netlify Forms.
+              New food sign-ups are still being saved, but recently added dishes may take longer to appear below.
             </p>
           )}
           {loading ? (
             <div className="text-center py-12 text-muted-foreground">Loading the feast…</div>
-          ) : listError ? null : items.length === 0 ? (
+          ) : items.length === 0 ? (
             <div
               className="rounded-3xl p-12 text-center"
               style={{ background: 'hsl(var(--muted))' }}
