@@ -13,22 +13,35 @@
 import { defineConfig } from 'drizzle-kit';
 import { getDatabaseCredentials } from './src/server/db/config';
 
-const credentials = getDatabaseCredentials();
+// Migration generation only needs the schema. Credentials are loaded when the
+// legacy config file is present (e.g. for `drizzle-kit migrate`), and skipped
+// otherwise so builds without that file don't fail.
+function loadCredentials() {
+  try {
+    return getDatabaseCredentials();
+  } catch {
+    return undefined;
+  }
+}
+
+const credentials = loadCredentials();
 
 export default defineConfig({
   schema: './src/server/db/schema.ts',
   out: './drizzle',
   dialect: 'mysql',
-  dbCredentials: {
-    host: credentials.host,
-    port: credentials.port,
-    user: credentials.user,
-    password: credentials.password,
-    database: credentials.database,
-    ssl: {
-      rejectUnauthorized: false,
-    }
-  },
+  ...(credentials && {
+    dbCredentials: {
+      host: credentials.host,
+      port: credentials.port,
+      user: credentials.user,
+      password: credentials.password,
+      database: credentials.database,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    },
+  }),
   verbose: true,
   strict: false,
 });
