@@ -352,10 +352,25 @@ export default function HomePage() {
                     Thanksgiving Menu
                   </h3>
                 </div>
+                <p className="text-sm mb-4" style={{ color: 'hsl(var(--cream) / 0.85)' }}>
+                  Get the current Thanksgiving food list, including dishes family members have submitted online.
+                  Each download reflects the latest saved sign-ups and organizer changes.
+                </p>
+                <a
+                  href="/.netlify/functions/live-menu-pdf"
+                  download
+                  className="inline-flex items-center justify-center rounded-full px-6 py-3 mb-8 font-black text-sm shadow-lg hover:opacity-90"
+                  style={{ background: 'hsl(var(--golden))', color: 'hsl(var(--dark-text))' }}
+                >
+                  ⬇ Download Updated Menu PDF
+                </a>
+                <h4 className="text-lg font-bold mb-2" style={{ color: 'hsl(var(--golden))' }}>
+                  Original Editable Menu (Unchanged)
+                </h4>
                 <p className="text-sm mb-5" style={{ color: 'hsl(var(--cream) / 0.8)' }}>
-                  The menu PDF shows dishes already claimed. Download it to fill out your own copy,
-                  but PDF edits do not update the shared website. To tell everyone what you're bringing,
-                  use the “Add My Dish” form below.
+                  The original PDF is preserved below for reference and personal edits.
+                  Edits to a downloaded PDF do not change the shared sign-up list.
+                  Use the “Add My Dish” form below to tell everyone what you're bringing.
                 </p>
                 <Suspense fallback={<PdfSkeleton />}>
                   <PdfViewer
