@@ -11,9 +11,19 @@
  * - Throws error if config file not found or invalid
  */
 import { defineConfig } from 'drizzle-kit';
-import { getDatabaseCredentials } from './src/server/db/config';
+import { getDatabaseCredentials, type DatabaseCredentials } from './src/server/db/config';
 
-const credentials = getDatabaseCredentials();
+// `drizzle-kit generate` only reads the schema and never connects, so fall back
+// to placeholder credentials when the config file isn't present (e.g. in CI/Netlify builds).
+function loadCredentials(): DatabaseCredentials {
+  try {
+    return getDatabaseCredentials();
+  } catch {
+    return { host: 'localhost', port: 3306, user: '', password: '', database: '' };
+  }
+}
+
+const credentials = loadCredentials();
 
 export default defineConfig({
   schema: './src/server/db/schema.ts',

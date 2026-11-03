@@ -13,12 +13,12 @@ interface Location {
 const LOCATIONS: Location[] = [
   {
     name: 'Home Base Hotel',
-    address: 'Drury Inn & Suites St. Louis Fairview Heights, 12 Ludwig Dr, Fairview Heights, IL 62208',
+    address: 'Embassy Suites by Hilton St. Louis – St. Charles, 2 Convention Center Plaza, St. Charles, MO 63303',
     emoji: '🏨',
     note: 'Where the family is staying — book early!',
-    link: 'https://maps.google.com/?q=Drury+Inn+Suites+St+Louis+Fairview+Heights+12+Ludwig+Dr+Fairview+Heights+IL',
+    link: 'https://www.google.com/maps/search/?api=1&query=Embassy+Suites+St+Louis+St+Charles+2+Convention+Center+Plaza+St+Charles+MO+63303',
     isHotel: true,
-    hotelUrl: 'https://www.druryhotels.com/locations/fairview-heights-il/drury-inn-suites-st-louis-fairview-heights',
+    hotelUrl: 'https://www.hilton.com/en/hotels/stlsces-embassy-suites-st-louis-st-charles/',
   },
   {
     name: 'Thanksgiving Dinner',
