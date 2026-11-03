@@ -18,7 +18,7 @@ const LOCATIONS: Location[] = [
     note: 'Where the family is staying — book early!',
     link: 'https://www.google.com/maps/search/?api=1&query=Embassy+Suites+St+Louis+St+Charles+2+Convention+Center+Plaza+St+Charles+MO+63303',
     isHotel: true,
-    hotelUrl: 'https://www.hilton.com/en/hotels/stlsces-embassy-suites-st-louis-st-charles/',
+    hotelUrl: 'https://www.hilton.com/en/hotels/stlemes-embassy-suites-st-louis-st-charles/',
   },
   {
     name: 'Thanksgiving Dinner',
