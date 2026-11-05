@@ -18,7 +18,7 @@ const LOCATIONS: Location[] = [
     note: 'Where the family is staying — book early!',
     link: 'https://www.google.com/maps/search/?api=1&query=Embassy+Suites+St+Louis+St+Charles+2+Convention+Center+Plaza+St+Charles+MO+63303',
     isHotel: true,
-    hotelUrl: 'https://www.hilton.com/en/hotels/stlemes-embassy-suites-st-louis-st-charles/',
+    hotelUrl: 'https://www.hilton.com/en/attend-my-event/lanefamilystaygroupblock/',
   },
   {
     name: 'Thanksgiving Dinner',
@@ -185,7 +185,7 @@ export default function MapSection() {
                       className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-full transition-all hover:scale-105"
                       style={{ background: 'hsl(var(--dark-text))', color: 'hsl(var(--cream))' }}
                     >
-                      🏨 Book Hotel
+                      🏨 Book Lane Family Group Block
                     </a>
                   )}
                 </div>
